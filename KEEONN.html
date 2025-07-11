@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>KEEONN Taekwondo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+  --dark-blue: #10172b;
+  --white: #ffffff;
+  --red: #dc3545;
+  --primary: #23395d;
+  --light-blue: #3e5e9d;
+  --text-gray: #cccccc;
+}
+
+body {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  margin-top: 56px;
+}
+
+/* Navbar elegan */
+.navbar {
+  background-color: rgba(16, 23, 43, 0.8) !important;
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
+}
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: var(--white) !important;
+}
+.nav-link {
+  font-weight: 500;
+  color: var(--white) !important;
+  transition: color 0.3s ease;
+}
+.nav-link:hover {
+  color: var(--light-blue) !important;
+}
+
+/* Hero elegan */
+.hero {
+  position: relative;
+  height: calc(100vh - 56px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+  background: var(--dark-blue);
+}
+.hero::before {
+  content: "";
+  background: url('https://ik.imagekit.io/qntwntk9qb/keeonn.jpg?updatedAt=1752165003258') center/cover no-repeat;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.3;
+  filter: blur(4px);
+  z-index: 1;
+}
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+.hero img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 20px #000);
+}
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards;
+}
+.hero p {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--text-gray);
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeInUp 1.5s forwards;
+  animation-delay: 0.8s;
+}
+
+/* Sections */
+section {
+  padding: 3rem 1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+h2.section-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  letter-spacing: 1.5px;
+  color: var(--white);
+}
+
+/* Forms */
+label, p, option, input, select, footer {
+  color: var(--white);
+}
+input, select, textarea {
+  background-color: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--white);
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--light-blue);
+  box-shadow: 0 0 0 0.2rem rgba(62,94,157,0.3);
+}
+.btn-light {
+  background-color: var(--light-blue);
+  color: var(--white);
+  border: none;
+}
+.btn-light:hover {
+  background-color: #567bb9;
+  color: var(--white);
+}
+
+/* Notifications */
+.notification-card {
+  background-color: rgba(255,255,255,0.08);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.notification-card:hover {
+  background-color: rgba(255,255,255,0.18);
+}
+.badge-notif {
+  background: var(--red);
+  font-size: 0.7rem;
+  vertical-align: top;
+  margin-left: 4px;
+  padding: 3px 7px;
+  border-radius: 12px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  background: #0a1224;
+  margin-top: 3rem;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero img {
+    max-width: 120px;
+  }
+  section {
+    padding: 2rem 1rem;
+    max-width: 90vw;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#hero">
+        KEEONN
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3">
+          <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="#aboutus">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/keeonn.co/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://wa.me/6283826772621" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Log In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero" id="hero">
+    <img src="https://ik.imagekit.io/qntwntk9qb/keeonn.jpg?updatedAt=1752165003258" alt="KEEONN Logo" />
+    <h1>KEEONN TAEKWONDO</h1>
+    <p>strength . peace</p>
+  </div>
+
+  <!-- Registration -->
+  <section id="registration">
+    <h2 class="section-title">Register for Classes</h2>
+    <form id="registrationForm" class="mx-auto" style="max-width: 500px;">
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullName" name="fullName" required />
+      </div>
+      <div class="mb-3">
+        <label for="emailAddress" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="emailAddress" name="emailAddress" required />
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required />
+      </div>
+      <div class="mb-3">
+        <label for="classLevel" class="form-label">Class Level</label>
+        <select class="form-select" id="classLevel" name="classLevel" required>
+          <option value="" disabled selected>Select your level</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-light w-100">Submit Registration</button>
+    </form>
+  </section>
+
+  <!-- About Us -->
+  <section id="aboutus">
+    <h2 class="section-title">About KEEONN</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto;">
+      KEEONN Taekwondo is dedicated to building both physical strength and inner peace through the martial art of Taekwondo. Our experienced instructors provide training for all skill levels, emphasizing discipline, respect, and self-confidence. Join us to develop your body and mind in a supportive and empowering environment.A family-run company, we promote the active lifestyle, self-motivation and confidence through the discipline of martial arts. Join the pack and train with us tigers! Our sessions are the perfect way to stay fit and healthy, ready to overcome any challenges
+    </p>
+  </section>
+
+  <!-- Log In Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <form id="loginForm">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">Member Log In</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Username</label>
+              <input type="text" class="form-control" id="loginEmail" name="email" required />
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" id="loginPassword" name="password" required />
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="submit" class="btn btn-light w-100">Log In</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+   
+  <div id="dashboard" style="display: none;">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">KEEONN</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarDashboard" aria-controls="navbarDashboard" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarDashboard">
+          <ul class="navbar-nav gap-3" id="dashboardMenu">
+            <li class="nav-item"><a class="nav-link" href="#event">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+            <li class="nav-item d-none" id="notifTab">
+              <a class="nav-link" href="#notifications">
+                Notifications <span class="badge badge-notif d-none" id="notifBadge"></span>
+              </a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#" id="logoutBtn">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <section id="event">
+      <h2 class="section-title">Events</h2>
+      <p class="text-center">Stay tuned for upcoming events!</p>
+    </section>
+
+    <section id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <p class="text-center">Photos coming soon.</p>
+    </section>
+
+    <section id="schedule">
+      <h2 class="section-title">Schedule</h2>
+      <p class="text-center">Schedule details will be posted here.</p>
+    </section>
+
+    <section id="notifications" class="d-none">
+      <h2 class="section-title">Notifications</h2>
+
+      <!-- Admin notification form -->
+      <div id="adminNotifForm" class="mb-4 d-none">
+        <textarea id="notifMessage" class="form-control mb-2" rows="3" placeholder="Write a notification message for users..."></textarea>
+        <button id="sendNotifBtn" class="btn btn-success">Send Notification</button>
+      </div>
+
+      <div id="notifList"></div>
+    </section>
+  </div>
+
+  <footer>&copy; 2025 KEEONN Taekwondo.</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    let isAdmin = false;
+    let notifications = [];
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const user = e.target.loginEmail.value.trim();
+      const pass = e.target.loginPassword.value.trim();
+
+      if (user === 'admin' && pass === 'admin123') {
+        showDashboard(true);
+      } else if (user === 'keeonn' && pass === '12345') {
+        showDashboard(false);
+      } else {
+        alert('Invalid username or password!');
+      }
+    });
+
+    function showDashboard(admin) {
+      isAdmin = admin;
+      bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+      document.querySelector('.hero').style.display = 'none';
+      document.getElementById('registration').style.display = 'none';
+      document.getElementById('aboutus').style.display = 'none';
+      document.getElementById('mainNavbar').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+
+      if (isAdmin) {
+        document.getElementById('adminNotifForm').classList.remove('d-none');
+        document.getElementById('notifTab').classList.add('d-none');
+        document.getElementById('notifications').classList.remove('d-none');
+      } else {
+        document.getElementById('adminNotifForm').classList.add('d-none');
+        document.getElementById('notifTab').classList.remove('d-none');
+        document.getElementById('notifications').classList.remove('d-none');
+        notifications = JSON.parse(localStorage.getItem("keeonnNotifications") || "[]");
+        renderNotifications();
+        updateBadge();
+      }
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      location.reload();
+    });
+
+    document.getElementById('registrationForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Registration submitted!');
+      e.target.reset();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const sendBtn = document.getElementById('sendNotifBtn');
+      if (sendBtn) {
+        sendBtn.addEventListener('click', () => {
+          const msg = document.getElementById('notifMessage').value.trim();
+          if (msg) {
+            const now = new Date();
+            const newNotif = {
+              message: msg,
+              date: now.toISOString(),
+              read: false
+            };
+            const stored = JSON.parse(localStorage.getItem("keeonnNotifications") || "[]");
+            stored.push(newNotif);
+            localStorage.setItem("keeonnNotifications", JSON.stringify(stored));
+            document.getElementById('notifMessage').value = '';
+            alert("Message sent successfully!");
+
+            // Trigger storage event manually for same-tab update
+            window.dispatchEvent(new Event('storage'));
+          }
+        });
+      }
+    });
+
+    window.addEventListener('storage', () => {
+      notifications = JSON.parse(localStorage.getItem("keeonnNotifications") || "[]");
+      renderNotifications();
+      updateBadge();
+    });
+
+    function renderNotifications() {
+      const list = document.getElementById('notifList');
+      list.innerHTML = '';
+      // Show newest first
+      notifications.slice().reverse().forEach((n, index) => {
+        const div = document.createElement('div');
+        div.className = 'notification-card';
+        div.innerHTML = `
+          <strong>${escapeHtml(n.message.substring(0, 50))}${n.message.length > 50 ? '...' : ''}</strong><br>
+          <small style="color: #aaa;">
+            ${formatDate(n.date)}
+          </small>
+        `;
+        // Open correct original index
+        div.addEventListener('click', () => openNotification(notifications.length - 1 - index));
+        list.appendChild(div);
+      });
+    }
+
+    function openNotification(index) {
+      const notif = notifications[index];
+      notif.read = true;
+      localStorage.setItem("keeonnNotifications", JSON.stringify(notifications));
+      updateBadge();
+
+      const win = window.open("", "_blank");
+      win.document.write(`
+        <html>
+          <head><title>Notification</title></head>
+          <body style="font-family:sans-serif;padding:20px;background:#0d2a48;color:#fff;">
+            <h2>Notification</h2>
+            <p>${escapeHtml(notif.message)}</p>
+            <p style="color:#aaa;font-size:small;">Sent on: ${formatDate(notif.date)}</p>
+          </body>
+        </html>
+      `);
+    }
+
+    function formatDate(isoDate) {
+      const d = new Date(isoDate);
+      const dateStr = d.toLocaleDateString();
+      const timeStr = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      return `${dateStr} ${timeStr}`;
+    }
+
+    function updateBadge() {
+      const unread = notifications.filter(n => !n.read).length;
+      const badge = document.getElementById('notifBadge');
+      if (unread > 0) {
+        badge.textContent = unread > 50 ? '50+' : unread;
+        badge.classList.remove('d-none');
+      } else {
+        badge.classList.add('d-none');
+      }
+    }
+
+    // Simple HTML escape
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, function(m) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[m];
+      });
+    }
+  </script>
+</body>
+</html>
